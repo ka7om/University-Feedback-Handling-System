@@ -1,3 +1,7 @@
+{% extends 'parts/base.html' %}
+
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,43 +20,6 @@
         body {
             background-color: #eef2f7;
             padding: 20px;
-        }
-
-        /* Navigation Bar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 25px;
-        }
-
-        .navbar .logo {
-            font-weight: bold;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .navbar .menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .navbar .menu a {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-        }
-
-        .navbar .button {
-            padding: 8px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
         /* Welcome Section */
@@ -112,17 +79,6 @@
     </style>
 </head>
 <body>
-    <!-- 1- Navigation Bar -->
-    <div class="navbar">
-        <div class="logo">University Complaint Handling System</div>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="/my-complaints.html">My Complaints</a>
-            <a href="/contact-us.html">Contact Us</a>
-        </div>
-        <button class="button">Login</button>
-    </div>
-
     <!-- 2- Welcome Section -->
     <div class="welcome-section">
         <h1>Welcome to UCHS</h1>
@@ -146,8 +102,6 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 University Complaint Handling System. All rights reserved.</p>
-    </div>
 </body>
 </html>
+{% endblock %}
