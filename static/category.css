@@ -1,0 +1,163 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f3f6fa;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #007BFF;
+    flex: 1 1 auto;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+    flex: 2 1 auto;
+    justify-content: flex-end;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu a:hover {
+    color: #007BFF;
+}
+
+/* Main Title */
+.main_title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Categories Section */
+.Categories {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+
+.single_category {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 45%; /* This ensures the categories fit side-by-side */
+}
+
+.single_category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.single_category img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.single_category .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: capitalize;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .logo {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .navbar .menu a {
+        font-size: 0.9rem;
+    }
+
+    .main_title {
+        font-size: 1.6rem;
+    }
+
+    .Categories {
+        flex-direction: column; 
+        gap: 20px;
+        width: 100%; 
+    }
+
+    .single_category {
+        width: 100%; 
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .single_category img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .Categories .title{
+        margin-left: 0.83em;;
+    }
+}
+
+@media (max-width: 490px) {
+    .navbar .logo {
+        font-size: 0.9rem;
+    }
+
+    .navbar .menu a {
+        font-size: 0.8rem;
+    }
+
+    .main_title {
+        font-size: 1.4rem;
+    }
+
+    .single_category .title {
+        font-size: 1.3rem;
+    }
+}

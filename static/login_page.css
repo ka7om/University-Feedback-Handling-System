@@ -1,0 +1,78 @@
+/* Center the container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f0f5, #d4d4e8);
+    font-family: Arial, sans-serif;
+}
+
+/* Container styling */
+.container {
+    background-color: #f0f0f5;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.container h1 {
+    padding-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input field styling */
+.text-input {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.text-input label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #555;
+}
+
+.text-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.text-input input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

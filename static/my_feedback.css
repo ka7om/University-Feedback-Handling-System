@@ -1,0 +1,220 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f3f6fa;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #007BFF;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu a:hover {
+    color: #007BFF;
+}
+
+/* Section Styling */
+.section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+.section .submit_new h2:hover{
+    color: #007BFF;
+}
+
+/* Complaints Section */
+.complaint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.complaint:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.complaint .status-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.complaint .status-open {
+    background-color: #28a745;
+}
+
+.complaint .status-review {
+    background-color: #ffc107;
+}
+
+.complaint .status-closed {
+    background-color: #dc3545;
+}
+
+.complaint .content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.complaint .content p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.complaint .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.complaint .actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+}
+
+.complaint .actions .upvote {
+    background-color: #28a745;
+    color: white;
+}
+
+.complaint .actions .upvote:hover {
+    background-color: #218838;
+}
+
+.complaint .actions .downvote {
+    background-color: #dc3545;
+    color: white;
+}
+
+.complaint .actions .downvote:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .logo {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .navbar .menu a {
+        font-size: 0.9rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .complaint .content h3 {
+        font-size: 1.1rem;
+    }
+
+    .complaint .content p {
+        font-size: 0.9rem;
+    }
+
+    .complaint .actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .complaint .actions button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.1rem;
+    }
+
+    .navbar .menu a {
+        font-size: 0.8rem;
+    }
+
+    .section h2 {
+        font-size: 1.3rem;
+    }
+
+    .complaint .content h3 {
+        font-size: 1rem;
+    }
+
+    .complaint .content p {
+        font-size: 0.85rem;
+    }
+
+    .form input, .form textarea {
+        font-size: 0.9rem;
+    }
+}
