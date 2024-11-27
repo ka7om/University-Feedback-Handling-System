@@ -60,7 +60,10 @@
             <a href="/my-complaints.html">My Complaints</a>
             <a href="/contact-us.html">Contact Us</a>
         </div>
-        <button class="button">Login</button>
+        <div class="buttons">
+            <a class="button" href="{% url 'login:register' %}">Login</a>
+            <a class="button" href="{% url 'admin:index' %}">Admin</a>
+        </div>
     </div>
 </body>
 <main>

@@ -1,0 +1,22 @@
+{% extends 'parts/base.html' %}
+
+{% block content %}
+<div>
+    {% if registered %}
+        <h1>thnk you for registration </h1>
+    {% else %}
+        <h1>registar here!</h1>
+        <h3>fill out the form </h3>
+        <form method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input type="submit" value="registar">
+        </form>
+    {% endif %}
+</div>
+{% endblock %}
+
+<footer>
+    {% include 'parts/footer.html' %}
+</footer>

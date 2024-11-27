@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 template_DIR = os.path.join(BASE_DIR,'templates')
+media_DIR = os.path.join(BASE_DIR,'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'complaints',
     'users',
-    'pages'
+    'pages',
+    'login_app',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'UFHS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [template_DIR,],
+        'DIRS': [template_DIR,media_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +90,10 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
+#--------------------------------------------------------------------------------------------------------
+# PASSWORD_HASHERS specifies the algorithms used for hashing and verifying passwords.
+# Django uses the first hasher in the list for hashing new passwords.
+# Older hashers are included for compatibility with existing password hashes.
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
@@ -96,6 +102,11 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 ]
+
+# Note: Make sure to install the necessary dependencies for Argon2 (`pip install "django[argon2]"`)
+# and BCrypt (`pip install bcrypt`) to use those hashers.
+#--------------------------------------------------------------------------------------------------------
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
