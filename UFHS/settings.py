@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users',
     'pages',
     'login_app',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

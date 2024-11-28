@@ -1,24 +1,60 @@
 {% extends 'parts/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "login_page.css" %}">
+{% endblock %}
 
 {% block content %}
-<div>
+<div class="container">
     {% if registered %}
-        <h1>thnk you for registration </h1>
+        <h1>Thank you for registering!</h1>
     {% else %}
-        <h1>registar here!</h1>
-        <h3>fill out the form </h3>
-        <form method="post" enctype="multipart/form-data" >
+        <h1>Sign Up</h1>
+        
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ user_form.username.as_p }}
-            {{ user_form.email.username.as_p }}
-            {{ user_form.password.username.as_p }}
-            
-            <input type="submit" value="registar">
+
+            <div class="text-input">
+                <label for="first_name">First Name</label>
+                {% render_field user_form.first_name type="text" id="first_name" placeholder="Enter your first name" %}
+            </div>
+
+            <div class="text-input">
+                <label for="last_name">Last Name</label>
+                {% render_field user_form.last_name type="text" id="last_name" placeholder="Enter your last name" %}
+            </div>
+
+            <div class="text-input">
+                <label for="username">Username</label>
+                {% render_field user_form.username type="text" id="username" placeholder="Enter your username" %}
+            </div>
+
+            <div class="text-input">
+                <label for="email">Email</label>
+                {% render_field user_form.email type="email" id="email" placeholder="Enter your email" %}
+            </div>
+
+            <div class="text-input">
+                <label for="password">Password</label>
+                {% render_field user_form.password type="password" id="password" placeholder="Enter your password" %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
+
+        <a href="{% url "login:login_page" %}"><h5>Already logged in?</h5></a>
     {% endif %}
 </div>
 {% endblock %}
 
-<footer>
-    {% include 'parts/footer.html' %}
-</footer>
+
+
+
+
+
+

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import UserProfileInfoForm, UserForm
 
 # Create your views here.
+def logIn(request):
+    return render(request, "login_app/login_page.html")
 
 def register(request):
     registered = False
