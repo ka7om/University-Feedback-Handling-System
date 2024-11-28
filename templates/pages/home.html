@@ -19,16 +19,26 @@
     <!-- 3- Fomplaints Overview Section -->
     <div class="overview-section">
         <div class="overview-card">
-            <h3><a href="/feedback">Submit a Feedback</a></h3>
+            {% if user.is_authenticated %}
+                <h3><a href="{% url "pages:feedback" %}">Submit a Feedback</a></h3>
+            {% else %}
+                <h3><a href="#" onclick="alertLogin()">Submit a Feedback</a></h3>
+            {% endif %}
             <p>Facing an issue? Let us know by submitting a feedback and we'll take it forward.</p>
         </div>
+        
         {% comment %} <div class="overview-card">
             <h3>Track Your Feedbacks</h3>
             <p>Track the progress of your submitted feedbacks and receive timely updates.</p>
         </div> {% endcomment %}
         <div class="overview-card">
-            <h3><a href="/feedback">Browse Feedbacks</a></h3>
-            <p>View all submitted feedbacks and see if your issue has already been addressed.</p>
+            {% if user.is_authenticated %}
+                <h3><a href="/feedback">Browse Feedbacks</a></h3>
+            {% else %}
+                <h3><a href="#" onclick="alertLogin()">Browse Feedbacks</a></h3>
+            {% endif %}
+                <p>View all submitted feedbacks and see if your issue has already been addressed.</p>
+            
         </div>
     </div>
 {% endblock %}

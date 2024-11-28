@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'users',
     'pages',
     'login_app',
-    'widget_tweaks',
+    'widget_tweaks',   # run these 2 in the termial pip install django-widget-tweaks and pip install Pillow
 ]
 
 MIDDLEWARE = [
