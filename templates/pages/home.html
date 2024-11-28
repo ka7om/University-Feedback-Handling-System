@@ -1,19 +1,18 @@
 {% extends 'parts/base.html' %}
 {% load static %}
 
+{% block title %}
+    University Feedback Handling System
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "home.css" %}">
+{% endblock %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Feedback Handling System - Home</title>
-    <link rel="stylesheet" href=" ../../static/home.css">
-</head>
-<body>
-    <!-- 2- Welcome Section -->
+<!-- 2- Welcome Section -->
     <div class="welcome-section">
-        <h1>Welcome to UFHS</h1>
+        <h1>Welcome to University Feedback Handling System</h1>
         <p>Your platform to submit and manage feedback within the university environment.</p>
     </div>
 
@@ -32,8 +31,4 @@
             <p>View all submitted feedbacks and see if your issue has already been addressed.</p>
         </div>
     </div>
-
-    <!-- Footer -->
-</body>
-</html>
 {% endblock %}

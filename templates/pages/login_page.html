@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href=" ../../static/login_page.css">
-</head>
-<body>
+{% extends 'parts/base.html' %}
+{% load static %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "login_page.css" %}">
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>Login</h1>
         <form>
@@ -21,5 +23,4 @@
             <button type="submit">Login</button>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaints</title>
-    <link rel="stylesheet" href=" ../../static/feedback.css">
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <div class="logo">University Feedback Handling System</div>
-        <div class="menu">
-            <a href="/home">Home</a>
-            <a href="/my-feedback">My Feedbacks</a>
-            <a href="/Contact_us.html">Contact Us</a>
-        </div>
-    </div>
+{% extends 'parts/base.html' %}
+{% load static %}
 
-    <!-- Submit Complaint Section -->
+{% block title %}
+    Feedback
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "feedback.css" %}">
+{% endblock %}
+
+{% block content %}
     <div class="section">
         <h2>Submit Your Feedback</h2>
         <form class="form">
@@ -45,5 +37,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

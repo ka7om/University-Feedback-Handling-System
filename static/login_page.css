@@ -1,5 +1,5 @@
 /* Center the container */
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,12 +8,15 @@ body {
     padding: 0;
     background: linear-gradient(135deg, #f0f0f5, #d4d4e8);
     font-family: Arial, sans-serif;
-}
+    flex-direction: column;
+} */
 
 /* Container styling */
 .container {
+    margin: 0 auto;
     background-color: #f0f0f5;
     display: flex;
+    justify-content: center;
     text-align: center;
     align-items: center;
     flex-direction: column;
