@@ -47,6 +47,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -55,11 +56,11 @@
     <div class="navbar">
         <div class="logo">University Feedback Handling System</div>
         <div class="menu">
-            <a href="{% url %}">Home</a>
-            <a href="/my-complaints.html">My Feedbacks</a>
+            <a href="/home">Home</a>
+            <a href="/my-feedback">My Feedbacks</a>
             <a href="/contact-us.html">Contact Us</a>
         </div>
-        <button class="button">Login</button>
+        <a href="/login" class="button">Login</a>
     </div>
 </body>
 <main>

@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    text-decoration: none;
 }
 
 body {
@@ -57,6 +58,9 @@ body {
 .overview-card p {
     font-size: 16px;
     color: #333;
+}
+a {
+    color: #007BFF;
 }
 
 /* Footer */
