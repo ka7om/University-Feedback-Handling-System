@@ -20,7 +20,7 @@
     <div class="overview-section">
         <div class="overview-card">
             {% if user.is_authenticated %}
-                <h3><a href="{% url "pages:feedback" %}">Submit a Feedback</a></h3>
+                <h3><a href="{% url "feedbacks:submit_feedback" %}">Submit a Feedback</a></h3>
             {% else %}
                 <h3><a href="#" onclick="alertLogin()">Submit a Feedback</a></h3>
             {% endif %}

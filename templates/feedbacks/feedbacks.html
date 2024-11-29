@@ -1,5 +1,6 @@
 {% extends 'parts/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
     Feedback
@@ -12,18 +13,19 @@
 {% block content %}
     <div class="section">
         <h2>Submit Your Feedback</h2>
-        <form class="form">
-            <input type="text" placeholder="Enter Title" required>
-            <textarea rows="5" placeholder="Describe your feedback..." required></textarea>
+        <form class="form" method="post">
+            {% csrf_token %}
+            {% render_field form.topic type="text" id="feedback_title" placeholder="Enter Title" %}
+            {% render_field form.message placeholder="Describe your feedback..." %}
             <div class="actions">
-                <button type="button" class="cancel">Cancel</button>
-                <button type="submit" class="submit">Submit</button>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
 
-    <!-- Browse Complaints Section -->
-    <div class="section">
+       <!-- Browse Complaints Section -->
+       <div class="section">
         <h2>Browse Feedbacks</h2>
         <div class="complaint">
             <div class="status-circle status-open"></div>
