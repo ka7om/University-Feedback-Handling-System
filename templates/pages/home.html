@@ -33,7 +33,7 @@
         </div> {% endcomment %}
         <div class="overview-card">
             {% if user.is_authenticated %}
-                <h3><a href="/feedback">Browse Feedbacks</a></h3>
+                <h3><a href="{% url "pages:browes_feedbacks" %}">Browse Feedbacks</a></h3>
             {% else %}
                 <h3><a href="#" onclick="alertLogin()">Browse Feedbacks</a></h3>
             {% endif %}

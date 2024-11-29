@@ -42,7 +42,8 @@ def register(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return render(request, "pages/home.html",{})
+    redirect('pages:home')
+    return redirect('pages:home')
 
 def logIn(request):
     return render(request, "login_app/login_page.html")

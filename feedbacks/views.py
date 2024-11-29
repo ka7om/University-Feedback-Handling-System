@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Feedback
 from .forms import FeedbackForm
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def submit_feedback(request):
     if not request.user.is_authenticated:
         messages.error(request, "You need to log in to submit feedback.")
