@@ -50,6 +50,7 @@
             
             
             {% if user.is_authenticated %}
+                 {{ user.first_name|capfirst }}</p>
                 <a href="{% url 'logout' %}" class="button">logout</a>
             {% else %}
             
