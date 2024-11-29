@@ -1,10 +1,34 @@
 /* Global Styles */
-* {
+html, body {
+    height:100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+}
+
+a {
     text-decoration: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #777;
+    padding: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Navigation Bar */
@@ -15,21 +39,18 @@
     padding: 15px 25px;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 25px;
+    margin: 0;
+    margin-bottom: 100px;
 }
 
 .navbar .logo {
-    width: 70px; /* Adjust width */
+    width: 60px; /* Adjust width */
     height: auto; /* Maintain aspect ratio */
-    border: 2px solid #3498db;
-    border-radius: 15px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
+    background-color: transparent;
 }
 .navbar .logo:hover {
     transform: scale(1.1);
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .navbar .menu {
@@ -53,6 +74,13 @@
     text-decoration: none;
 }
 
+.login_class {
+    display: flex;
+}
+
+.login_class_child {
+    margin: auto 10px;
+}
 
 /* Modal Background */
 .modal {

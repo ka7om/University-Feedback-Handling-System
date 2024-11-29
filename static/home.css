@@ -1,8 +1,3 @@
-body {
-    background-color: #eef2f7;
-    padding: 20px;
-}
-
 /* Welcome Section */
 .welcome-section {
     text-align: center;
@@ -52,11 +47,4 @@ body {
 }
 a {
     color: #007BFF;
-}
-
-/* Footer */
-.footer {
-    margin-top: 50px;
-    text-align: center;
-    color: #777;
 }
