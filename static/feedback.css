@@ -24,8 +24,8 @@
 
 /* Form Styling */
 .form input, .form textarea {
-    width: 100%;
-    padding: 12px;
+    width: 98%;
+    padding: 12px 0 12px 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;

@@ -15,14 +15,16 @@
         <h2>Browse Feedbacks</h2>
         {% for feedback in feedback_list %}
             <div class="complaint">
-                <div class="status-circle status-open"></div>
-                <div class="content">
-                    <h3>{{feedback.topic}}</h3>
-                    <p>{{feedback.message}}</p>
+                <div class="feedback_flex">
+                    <div class="status-circle status-open"></div>
+                    <div class="content">
+                        <h3>{{feedback.topic}}</h3>
+                        <p>{{feedback.message}}</p>
+                    </div>
                 </div>
                 <div class="actions">
-                    <button class="upvote">Upvote</button>
-                    <button class="downvote">Downvote</button>
+                    <button class="upvote">Up vote</button>
+                    <button class="downvote">Down vote</button>
                 </div>
             </div>
         {% endfor %}
