@@ -8,17 +8,55 @@
         <link rel="stylesheet" href="{% static "base.css" %}">
         <title>{% block title %}{% endblock %}</title>
         {% block css_files %}{% endblock %}
+        <script>
+            function alertLogin() {
+                // Show the modal
+                document.getElementById("loginModal").style.display = "block";
+            }
+        
+            function closeModal() {
+                // Hide the modal
+                document.getElementById("loginModal").style.display = "none";
+            }
+        
+            function redirectToLogin() {
+                // Redirect to the login page
+                window.location.href = "{% url 'login:login_page' %}";
+            }
+        </script>
+        
+        
     </head>
     <body>
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <h2>Login Required</h2>
+                <p>You need to log in to submit feedback.</p>
+                <button class="btn btn-primary" onclick="redirectToLogin()">Login</button>
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
         <!-- Navigation Bar -->
         <nav class="navbar">
             <img src="{% static "images/AUIB.png"%}" class="logo">
             <div class="menu">
                 <a href="/home">Home</a>
+                {% if user.is_authenticated %}
                 <a href="/my-feedback">My Feedbacks</a>
+                {% endif %}
                 <a href="/contact-us.html">Contact Us</a>
             </div>
-            <a href="{% url 'login:login_page' %}" class="button">Login</a>
+            
+            
+            
+            {% if user.is_authenticated %}
+                 {{ user.first_name|capfirst }}</p>
+                <a href="{% url 'logout' %}" class="button">logout</a>
+            {% else %}
+            
+                <a href="{% url 'login:login_page' %}" class="button">Login</a>
+            {% endif %}
+           
         </nav>
         <main>
         {% block content %}
