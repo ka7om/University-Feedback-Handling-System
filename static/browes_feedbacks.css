@@ -1,4 +1,3 @@
-/* Section Styling */
 .section {
     margin-bottom: 30px;
     padding: 25px;
@@ -22,63 +21,12 @@
     padding-bottom: 5px;
 }
 
-/* Form Styling */
-.form input, .form textarea {
-    width: 98%;
-    padding: 12px 0 12px 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #f9f9f9;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form input:focus, .form textarea:focus {
-    border-color: #007BFF;
-    outline: none;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
-
-.form .actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-}
-
-.form .actions button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.form .actions .cancel {
-    background-color: #ccc;
-    color: #333;
-}
-
-.form .actions .cancel:hover {
-    background-color: #bbb;
-}
-
-.form .actions .submit {
-    background-color: #007BFF;
-    color: #fff;
-}
-
-.form .actions .submit:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
 /* Complaints Section */
 .complaint {
     display: flex;
     flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
     align-items: flex-start;
+    justify-content:space-between;
     padding: 20px;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -156,17 +104,7 @@
     background-color: #c82333;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-    .navbar .logo {
-        font-size: 1.3rem;
-        text-align: center;
-    }
-
-    .navbar .menu a {
-        font-size: 0.9rem;
-    }
-
     .section h2 {
         font-size: 1.5rem;
     }
@@ -192,14 +130,6 @@
 }
 
 @media (max-width: 480px) {
-    .navbar .logo {
-        font-size: 1.1rem;
-    }
-
-    .navbar .menu a {
-        font-size: 0.8rem;
-    }
-
     .section h2 {
         font-size: 1.3rem;
     }
@@ -210,9 +140,5 @@
 
     .complaint .content p {
         font-size: 0.85rem;
-    }
-
-    .form input, .form textarea {
-        font-size: 0.9rem;
     }
 }
