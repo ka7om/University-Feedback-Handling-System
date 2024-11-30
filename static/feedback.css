@@ -55,105 +55,14 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.form .actions .cancel {
-    background-color: #ccc;
-    color: #333;
-}
-
-.form .actions .cancel:hover {
-    background-color: #bbb;
-}
-
-.form .actions .submit {
+.form .actions .btn {
     background-color: #007BFF;
     color: #fff;
 }
 
-.form .actions .submit:hover {
+.form .actions .btn:hover {
     background-color: #0056b3;
     transform: scale(1.05);
-}
-
-/* Complaints Section */
-.complaint {
-    display: flex;
-    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
-    align-items: flex-start;
-    padding: 20px;
-    background-color: #f9f9f9;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.complaint:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.complaint .status-circle {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-
-.complaint .status-open {
-    background-color: #28a745;
-}
-
-.complaint .status-review {
-    background-color: #ffc107;
-}
-
-.complaint .status-closed {
-    background-color: #dc3545;
-}
-
-.complaint .content h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.complaint .content p {
-    font-size: 0.95rem;
-    color: #666;
-}
-
-.complaint .actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.complaint .actions button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: background-color 0.3s ease;
-}
-
-.complaint .actions .upvote {
-    background-color: #28a745;
-    color: white;
-}
-
-.complaint .actions .upvote:hover {
-    background-color: #218838;
-}
-
-.complaint .actions .downvote {
-    background-color: #dc3545;
-    color: white;
-}
-
-.complaint .actions .downvote:hover {
-    background-color: #c82333;
 }
 
 /* Responsive Design */
@@ -169,26 +78,7 @@
 
     .section h2 {
         font-size: 1.5rem;
-    }
-
-    .complaint .content h3 {
-        font-size: 1.1rem;
-    }
-
-    .complaint .content p {
-        font-size: 0.9rem;
-    }
-
-    .complaint .actions {
-        width: 100%;
-        justify-content: flex-start;
-    }
-
-    .complaint .actions button {
-        padding: 8px 15px;
-        font-size: 12px;
-    }
-    
+    } 
 }
 
 @media (max-width: 480px) {
@@ -203,15 +93,6 @@
     .section h2 {
         font-size: 1.3rem;
     }
-
-    .complaint .content h3 {
-        font-size: 1rem;
-    }
-
-    .complaint .content p {
-        font-size: 0.85rem;
-    }
-
     .form input, .form textarea {
         font-size: 0.9rem;
     }

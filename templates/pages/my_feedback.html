@@ -12,7 +12,7 @@
 {% block content %}
     <div class="section">
         <div class="submit_new">
-            <a href="/feedback"><h2>Submit New Complaint</h2></a>
+            <a href="{% url "feedbacks:submit_feedback" %}"><h2>Submit New Complaint</h2></a>
         </div>
         <h2>Browse Complaints</h2>
         <div class="complaint">

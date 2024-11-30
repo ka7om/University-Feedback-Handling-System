@@ -77,30 +77,31 @@
     margin-top: 10px;
 }
 
-.complaint .actions button {
+.complaint .actions .btn {
     padding: 8px 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.95rem;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
-.complaint .actions .upvote {
+.complaint .actions .btn-success {
     background-color: #28a745;
     color: white;
 }
 
-.complaint .actions .upvote:hover {
+.complaint .actions .btn-success:hover {
     background-color: #218838;
 }
 
-.complaint .actions .downvote {
+.complaint .actions .btn-danger {
     background-color: #dc3545;
     color: white;
 }
 
-.complaint .actions .downvote:hover {
+.complaint .actions .btn-danger:hover {
     background-color: #c82333;
 }
 
@@ -126,7 +127,6 @@
         padding: 8px 15px;
         font-size: 12px;
     }
-    
 }
 
 @media (max-width: 480px) {
