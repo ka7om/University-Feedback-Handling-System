@@ -18,6 +18,9 @@ class Feedback(models.Model):
     def downvote_count(self):
         return self.votes.filter(vote_type=Vote.DOWNVOTE).count()
     
+    def score(self):
+        return self.upvote_count() - self.downvote_count()
+    
 class Vote(models.Model):
     UPVOTE = 'U'
     DOWNVOTE = 'D'

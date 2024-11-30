@@ -15,15 +15,21 @@ def feedback(request):
     return render(request, "pages/feedback.html")
 
 def browes(request):
-    feedback_list = Feedback.objects.all()  # Optional: To display existing feedbacks
-    
+    feedback_list = sorted(
+        Feedback.objects.all(),
+        key=lambda feedback: feedback.score(),
+        reverse=True,  # Sort from highest to lowest
+    )
+
     user_votes = {}
     if request.user.is_authenticated:
         user_votes = {
             vote.feedback_id: vote.vote_type
             for vote in Vote.objects.filter(user=request.user)
         }
+
     return render(request, 'pages/browes_feedbacks.html', {
         'feedback_list': feedback_list,
         'user_votes': user_votes,
     })
+
