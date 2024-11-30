@@ -1,6 +1,8 @@
 {% extends 'parts/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+{% load custom_filters %}
+
 
 {% block title %}
     Feedback
@@ -13,20 +15,28 @@
 {% block content %}
     <div class="section">
         <h2>Browse Feedbacks</h2>
+
         {% for feedback in feedback_list %}
             <div class="complaint">
-                <div class="feedback_flex">
-                    <div class="status-circle status-open"></div>
-                    <div class="content">
-                        <h3>{{feedback.topic}}</h3>
-                        <p>{{feedback.message}}</p>
-                    </div>
+                <div class="status-circle status-open"></div>
+                <div class="content">
+                    <h3>{{ feedback.topic }}</h3>
+                    <p>{{ feedback.message }}</p>
+                    <p>Upvotes: {{ feedback.upvote_count }} | Downvotes: {{ feedback.downvote_count }}</p>
                 </div>
                 <div class="actions">
-                    <button class="upvote">Up vote</button>
-                    <button class="downvote">Down vote</button>
+                    {% if feedback.id in user_votes %}
+                        {% if user_votes|dict_get:feedback.id == 'U' %}
+                            <a href="{% url 'feedbacks:vote' feedback.id 'U' %}" class="btn btn-success active">Upvoted</a>
+                        {% elif user_votes|dict_get:feedback.id == 'D' %}
+                            <a href="{% url 'feedbacks:vote' feedback.id 'D' %}" class="btn btn-danger active">Downvoted</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'feedbacks:vote' feedback.id 'U' %}" class="btn btn-success">Upvote</a>
+                        <a href="{% url 'feedbacks:vote' feedback.id 'D' %}" class="btn btn-danger">Downvote</a>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
-    <div>
+    </div>
 {% endblock %}
