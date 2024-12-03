@@ -1,5 +1,7 @@
 {% extends 'parts/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
+{% load custom_filters %}
 
 {% block title %}
     My Feedback
@@ -15,38 +17,32 @@
             <a href="{% url "feedbacks:submit_feedback" %}"><h2>Submit New Complaint</h2></a>
         </div>
         <h2>Browse Complaints</h2>
-        <div class="complaint">
-            <div class="status-circle status-open"></div>
-            <div class="content">
-                <h3>Title</h3>
-                <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            </div>
-            <div class="actions">
-                <button class="upvote">Upvote</button>
-                <button class="downvote">Downvote</button>
-            </div>
-        </div>
-        <div class="complaint">
-            <div class="status-circle status-review"></div>
-            <div class="content">
-                <h3>Title</h3>
-                <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            </div>
-            <div class="actions">
-                <button class="upvote">Upvote</button>
-                <button class="downvote">Downvote</button>
-            </div>
-        </div>
-        <div class="complaint">
-            <div class="status-circle status-closed"></div>
-            <div class="content">
-                <h3>Title</h3>
-                <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            </div>
-            <div class="actions">
-                <button class="upvote">Upvote</button>
-                <button class="downvote">Downvote</button>
-            </div>
-        </div>
+        {% if feedback_list %}
+            {% for feedback in feedback_list %}
+                <div class="complaint">
+                    <div class="content">
+                        <div class="status-circle status-open"></div>
+                        <h3>{{ feedback.topic }}</h3>
+                        <p>{{ feedback.message }}</p>
+                        <p>Upvotes: {{ feedback.upvote_count }} | Downvotes: {{ feedback.downvote_count }}</p>
+                    </div>
+                    <div class="actions">
+                        {% if feedback.id in user_votes %}
+                            {% if user_votes|dict_get:feedback.id == 'U' %}
+                                <a href="{% url 'feedbacks:vote2' feedback.id 'U' %}" class="btn btn-success active">Upvoted</a>
+                            {% elif user_votes|dict_get:feedback.id == 'D' %}
+                                <a href="{% url 'feedbacks:vote2' feedback.id 'D' %}" class="btn btn-danger active">Downvoted</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'feedbacks:vote2' feedback.id 'U' %}" class="btn btn-success">Upvote</a>
+                            <a href="{% url 'feedbacks:vote2' feedback.id 'D' %}" class="btn btn-danger">Downvote</a>
+                        {% endif %}
+        
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You have not submitted any feedback yet.</p>
+        {% endif %}
     </div>
 {% endblock %}

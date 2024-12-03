@@ -59,3 +59,36 @@ def vote(request, feedback_id, vote_type):
         messages.success(request, "Your vote has been recorded.")
 
     return redirect('pages:browes_feedbacks')  # Redirect to your feedback list page
+
+def vote2(request, feedback_id, vote_type):
+    """
+    Handles upvotes and downvotes for feedback.
+    Parameters:
+    - feedback_id: ID of the feedback being voted on.
+    - vote_type: 'U' for upvote, 'D' for downvote.
+    """
+    if not request.user.is_authenticated:
+        messages.error(request, "You need to log in to vote.")
+        return redirect('login:login_page')
+
+    feedback = get_object_or_404(Feedback, id=feedback_id)
+
+    # Check if the user has already voted on this feedback
+    vote = Vote.objects.filter(user=request.user, feedback=feedback).first()
+
+    if vote:
+        # Update existing vote if different
+        if vote.vote_type != vote_type:
+            vote.vote_type = vote_type
+            vote.save()
+            messages.success(request, "Your vote has been updated.")
+        else:
+            # If the same vote exists, remove it (toggle feature)
+            vote.delete()
+            messages.success(request, "Your vote has been removed.")
+    else:
+        # Create a new vote
+        Vote.objects.create(user=request.user, feedback=feedback, vote_type=vote_type)
+        messages.success(request, "Your vote has been recorded.")
+
+    return redirect('pages:my_feedback')  # Redirect to your feedback list page

@@ -9,7 +9,34 @@ def home(request):
 
 @login_required
 def myFeedback(request):
-    return render(request, "pages/my_feedback.html")
+    # Get only feedbacks created by the logged-in user
+    feedback_list = sorted(
+        Feedback.objects.filter(user=request.user),  # Filter feedbacks by user
+        key=lambda feedback: feedback.score(),
+        reverse=True,  # Sort from highest to lowest
+    )
+
+    user_votes = {}
+    feedback_states = {}
+    if request.user.is_authenticated:
+        user_votes = {
+            vote.feedback_id: vote.vote_type
+            for vote in Vote.objects.filter(user=request.user)
+        }
+
+        # Prepare feedback states for user's feedback
+        feedback_states = {
+            feedback.id: user_votes.get(feedback.id, None)
+            for feedback in feedback_list
+        }
+
+    return render(request, "pages/my_feedback.html", {
+        'feedback_list': feedback_list,  # Only user feedbacks
+        'feedback_states': feedback_states,
+    })
+
+
+    
 @login_required
 def feedback(request):
     return render(request, "pages/feedback.html")
