@@ -12,37 +12,36 @@
 {% endblock %}
 
 {% block content %}
-    <div class="section">
-        <div class="submit_new">
-            <a href="{% url "feedbacks:submit_feedback" %}"><h2>Submit New Complaint</h2></a>
+<div class="section">
+<div class="submit_new">
+    <a href="{% url "feedbacks:submit_feedback" %}"><h2>Submit New Complaint</h2></a>
+</div>
+<h2>Browse Complaints</h2>
+{% if feedback_list %}
+    {% for feedback in feedback_list %}
+        <div class="complaint">
+            <div class="content">
+                <div class="status-circle status-open"></div>
+                <h3>{{ feedback.topic }}</h3>
+                <p>{{ feedback.message }}</p>
+                <p>Upvotes: {{ feedback.upvote_count }} | Downvotes: {{ feedback.downvote_count }}</p>
+            </div>
+            <div class="actions">
+                {% if feedback.id in user_votes %}
+                    {% if user_votes|dict_get:feedback.id == 'U' %}
+                        <a href="{% url 'feedbacks:vote2' feedback.id 'U' %}" class="btn btn-success active">Upvoted</a>
+                    {% elif user_votes|dict_get:feedback.id == 'D' %}
+                        <a href="{% url 'feedbacks:vote2' feedback.id 'D' %}" class="btn btn-danger active">Downvoted</a>
+                    {% endif %}
+                {% else %}
+                    <a href="{% url 'feedbacks:vote2' feedback.id 'U' %}" class="btn btn-success">Upvote</a>
+                    <a href="{% url 'feedbacks:vote2' feedback.id 'D' %}" class="btn btn-danger">Downvote</a>
+                {% endif %}
+            </div>
         </div>
-        <h2>Browse Complaints</h2>
-        {% if feedback_list %}
-            {% for feedback in feedback_list %}
-                <div class="complaint">
-                    <div class="content">
-                        <div class="status-circle status-open"></div>
-                        <h3>{{ feedback.topic }}</h3>
-                        <p>{{ feedback.message }}</p>
-                        <p>Upvotes: {{ feedback.upvote_count }} | Downvotes: {{ feedback.downvote_count }}</p>
-                    </div>
-                    <div class="actions">
-                        {% if feedback.id in user_votes %}
-                            {% if user_votes|dict_get:feedback.id == 'U' %}
-                                <a href="{% url 'feedbacks:vote2' feedback.id 'U' %}" class="btn btn-success active">Upvoted</a>
-                            {% elif user_votes|dict_get:feedback.id == 'D' %}
-                                <a href="{% url 'feedbacks:vote2' feedback.id 'D' %}" class="btn btn-danger active">Downvoted</a>
-                            {% endif %}
-                        {% else %}
-                            <a href="{% url 'feedbacks:vote2' feedback.id 'U' %}" class="btn btn-success">Upvote</a>
-                            <a href="{% url 'feedbacks:vote2' feedback.id 'D' %}" class="btn btn-danger">Downvote</a>
-                        {% endif %}
-        
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>You have not submitted any feedback yet.</p>
-        {% endif %}
-    </div>
+    {% endfor %}
+{% else %}
+    <p>You have not submitted any feedback yet.</p>
+{% endif %}
+</div>
 {% endblock %}

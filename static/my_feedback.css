@@ -26,11 +26,11 @@
     color: #007BFF;
 }
 
-/* Complaints Section */
 .complaint {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
     align-items: flex-start;
+    justify-content:space-between;
     padding: 20px;
     background-color: #f9f9f9;
     margin-bottom: 20px;
@@ -81,44 +81,39 @@
     margin-top: 10px;
 }
 
-.complaint .actions button {
+.complaint .actions .btn {
     padding: 8px 15px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.95rem;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
-.complaint .actions .upvote {
+.complaint .actions .btn-success {
     background-color: #28a745;
     color: white;
 }
 
-.complaint .actions .upvote:hover {
+.complaint .actions .btn-success:hover {
     background-color: #218838;
 }
 
-.complaint .actions .downvote {
+.complaint .actions .btn-danger {
     background-color: #dc3545;
     color: white;
 }
 
-.complaint .actions .downvote:hover {
+.complaint .actions .btn-danger:hover {
     background-color: #c82333;
 }
 
-/* Responsive Design */
+.content {
+    width: 80%;
+}
+
 @media (max-width: 768px) {
-    .navbar .logo {
-        font-size: 1.3rem;
-        text-align: center;
-    }
-
-    .navbar .menu a {
-        font-size: 0.9rem;
-    }
-
     .section h2 {
         font-size: 1.5rem;
     }
@@ -143,14 +138,6 @@
 }
 
 @media (max-width: 480px) {
-    .navbar .logo {
-        font-size: 1.1rem;
-    }
-
-    .navbar .menu a {
-        font-size: 0.8rem;
-    }
-
     .section h2 {
         font-size: 1.3rem;
     }
@@ -161,9 +148,5 @@
 
     .complaint .content p {
         font-size: 0.85rem;
-    }
-
-    .form input, .form textarea {
-        font-size: 0.9rem;
     }
 }

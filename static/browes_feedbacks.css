@@ -105,6 +105,10 @@
     background-color: #c82333;
 }
 
+.content {
+    width: 80%;
+}
+
 @media (max-width: 768px) {
     .section h2 {
         font-size: 1.5rem;
